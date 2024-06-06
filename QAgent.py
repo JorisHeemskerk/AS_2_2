@@ -1,24 +1,24 @@
+import copy
 from typing import Annotated
 import ASCII_table
 import numpy as np
-import random
 
 from action import Action
 from baseMaze import BaseMaze
-from baseAgent import BaseAgent
+from SARSAAgent import SARSAAgent
 from floatRange import FloatRange, check_annotated
 from helper import Q_to_np_matrix
 from state import State
 
 
-class SARSAAgent(BaseAgent):
+class QAgent(SARSAAgent):
     """
-    SARSA agent.
+    Q-learning agent.
 
-    This is on-policy TD control.
+    This is SARSAMAX.
 
-    Extends BaseAgent class
-    @see baseAgent.py
+    Extends SARSAAgent class
+    @see SARSAAgent.py
     """
 
     def __init__(
@@ -36,36 +36,10 @@ class SARSAAgent(BaseAgent):
         @var $Q
         **dict[State : dict[Action : float]]** values per state in dict.
         """
-        super().__init__(maze, None, start_coordinate)
-        self.Q: dict[State : dict[Action : float]] = {}
+        super().__init__(maze, start_coordinate)
     
     @check_annotated
-    def _choose_action(
-        self, 
-        action_return_dict: dict[Action : float],
-        epsilon: Annotated[float, FloatRange(0.0, 1.0)]
-    )-> tuple[Action, float]:
-        """
-        Choose action from dict.
-
-        @param action_return_dict dict with action and return as float
-        @param epsilon: epsilon from formula, idk what it does exactly
-
-        @return Action
-        """
-        dice_roll = random.random()
-        action = max(action_return_dict, key=action_return_dict.get)
-        if dice_roll < epsilon:
-            action = random.choice([
-                Action.UP, 
-                Action.DOWN, 
-                Action.LEFT, 
-                Action.RIGHT
-            ])
-        return action
-
-    @check_annotated
-    def sarsa(
+    def Q_learning(
         self, 
         alpha: Annotated[float, FloatRange(0.0, 1.0)]=0.1,
         epsilon: Annotated[float, FloatRange(0.0, 1.0)]=0.1,
@@ -73,9 +47,9 @@ class SARSAAgent(BaseAgent):
         print_result: bool=False
     )-> None:
         """
-        sarsa function for SARSAAgent.
+        Q-learning function for QAgent.
 
-        This function performs the sarsa algorithm.
+        This function performs the Q-learning algorithm.
 
         @param alpha: alpha from formula, idk what it does exactly
         @param epsilon: epsilon from formula, idk what it does exactly
@@ -86,15 +60,16 @@ class SARSAAgent(BaseAgent):
         current_state = self.maze[self.current_coordinate]
         if current_state not in self.Q:
             self.Q[current_state] = {action : 0.0 for action in Action}
-        # calculate a
-        action = self._choose_action(
-            self.Q[current_state], 
-            epsilon
-        )
+        
         while not current_state.is_terminal:
+            # calculate a
+            action = self._choose_action(
+                self.Q[current_state], 
+                epsilon
+            )
             # calculate s'
             state_prime = self.maze[
-                self.maze.step(current_state.position, action)
+                self.maze.step(current_state.position, copy.copy(action))
             ]
             # calculate r
             reward = state_prime.reward
@@ -105,9 +80,10 @@ class SARSAAgent(BaseAgent):
                 self.Q[state_prime] = {action : 0.0 for action in Action}
 
             # calculate a'
+            
             action_prime = self._choose_action(
                 self.Q[state_prime],
-                epsilon
+                0
             )
 
             # Q(s,a) = Q(s,a) + α[r + γQ(s',a') - Q(s,a)]
@@ -120,11 +96,6 @@ class SARSAAgent(BaseAgent):
             # set back current state
             current_state = state_prime
             
-            action = self._choose_action(
-                self.Q[current_state], 
-                epsilon
-            )
-
         if print_result:
             print(f"\033[32m{'─'*57}\n\t\tQ-value matrix\n{'─'*57}\033[0m")
             table = ASCII_table.ASCIITable(

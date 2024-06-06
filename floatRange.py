@@ -1,7 +1,7 @@
 import inspect
 
 from dataclasses import dataclass
-from typing import Annotated, get_type_hints
+from typing import get_type_hints
 
 
 def check_annotated(func)-> None:
