@@ -29,8 +29,7 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ]
+        [ "Functions", "namespacemembers_func.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -51,7 +50,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"action_8py.html"
+"_q_agent_8py.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

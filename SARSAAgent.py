@@ -80,7 +80,6 @@ class SARSAAgent(BaseAgent):
         @param alpha: alpha from formula, idk what it does exactly
         @param epsilon: epsilon from formula, idk what it does exactly
         @param gamma: discount value
-        @param print_agent: whether or not to print each step taken
         @param print_result: whether to print the final values
         """
         current_state = self.maze[self.current_coordinate]

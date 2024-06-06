@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['optimalpolicy_2epy_0',['optimalPolicy.py',['../optimal_policy_8py.html',1,'']]],
-  ['optimalpolicygui_2epy_1',['optimalPolicyGUI.py',['../optimal_policy_g_u_i_8py.html',1,'']]]
+  ['hardcodedoptimalpolicy_2epy_0',['hardcodedOptimalPolicy.py',['../hardcoded_optimal_policy_8py.html',1,'']]],
+  ['helper_2epy_1',['helper.py',['../helper_8py.html',1,'']]]
 ];

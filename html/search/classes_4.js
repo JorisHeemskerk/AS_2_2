@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['probabilityagent_0',['ProbabilityAgent',['../classprobability_agent_1_1_probability_agent.html',1,'probabilityAgent']]]
+  ['hardcodedoptimalpolicy_0',['HardcodedOptimalPolicy',['../classhardcoded_optimal_policy_1_1_hardcoded_optimal_policy.html',1,'hardcodedOptimalPolicy']]]
 ];

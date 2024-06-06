@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['down_0',['DOWN',['../classaction_1_1_action.html#ae422b972d795b0196776a2841b4bc732',1,'action::Action']]]
+  ['is_5fterminal_0',['is_terminal',['../classstate_1_1_state.html#a286cad3d37ea35604af54017ddf68ff8',1,'state::State']]]
 ];

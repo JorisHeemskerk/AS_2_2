@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['down_0',['DOWN',['../classaction_1_1_action.html#ae422b972d795b0196776a2841b4bc732',1,'action::Action']]],
-  ['draw_5fmatrix_1',['draw_matrix',['../namespaceutils.html#a483fd91b234100f09c916c30bd954d76',1,'utils']]]
+  ['doubleqagent_0',['doubleQAgent',['../namespacedouble_q_agent.html',1,'']]],
+  ['doubleqagent_1',['DoubleQAgent',['../classdouble_q_agent_1_1_double_q_agent.html',1,'doubleQAgent']]],
+  ['doubleqagent_2epy_2',['doubleQAgent.py',['../double_q_agent_8py.html',1,'']]],
+  ['down_3',['DOWN',['../classaction_1_1_action.html#ae422b972d795b0196776a2841b4bc732',1,'action::Action']]]
 ];

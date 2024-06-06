@@ -8,6 +8,7 @@ from temporalDifferenceAgent import TemporalDifferenceAgent
 from SARSAAgent import SARSAAgent 
 from stochasticMaze import StochasticMaze
 from QAgent import QAgent 
+from doubleQAgent import DoubleQAgent 
 from basePolicy import BasePolicy
 from hardcodedOptimalPolicy import HardcodedOptimalPolicy
 from stupidMaze import StupidMaze
@@ -329,9 +330,9 @@ def simulate_base_assignment_EXTRA_D(epochs: int)-> None:
     print(f"\033[32m{'─'*43}\n\t\tMaze layout\n{'─'*43}\033[0m")
     print(maze.__str__(agent.current_coordinate))
 
-    ################################
-    #   SARSA with α=.1 ε=.1 γ=1   #
-    ################################
+    ############################
+    #   Q with α=.1 ε=.1 γ=1   #
+    ############################
     print(f"\033[32m{'─'*70}\n\t\tQ-learning, α=.1 ε=.1 γ=1 epoch={epochs}\n{'─'*70}\033[0m")
     for _ in tqdm(range(epochs-1)):
         agent.Q_learning(
@@ -375,10 +376,124 @@ def simulate_base_assignment_EXTRA_D(epochs: int)-> None:
     )
     policy_table.print()
 
-    #################################
-    #   SARSA with α=.1 ε=.1 γ=.9   #
-    #################################
+    #############################
+    #   Q with α=.1 ε=.1 γ=.9   #
+    #############################
     print(f"\033[32m{'─'*70}\n\t\tQ-learning, α=.1 ε=.1 γ=.9 epoch={epochs}\n{'─'*70}\033[0m")
+    for _ in tqdm(range(epochs-1)):
+        agent.Q_learning(
+            alpha=0.1,
+            epsilon=0.1,
+            gamma=0.9,
+            print_result=False
+        )
+    agent.Q_learning(
+            alpha=0.1,
+            epsilon=0.1,
+            gamma=0.9,
+            print_result=True
+        )
+    print(f"\033[32m{'─'*63}\n\t\tOptimal Policy derived from Q\n{'─'*63}\033[0m")
+    policy_table = ASCII_table.ASCIITable(
+        Q_to_policy_np_matrix(agent.Q).T[::-1],
+        np.array([
+            [
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.RED    
+            ], [
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.BLUE, 
+                ASCII_table.Colours.BLUE  
+            ], [
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DEFAULT
+            ], [
+                ASCII_table.Colours.RED, 
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DEFAULT
+            ],
+        ])
+    )
+    policy_table.print()
+
+def simulate_base_assignment_EXTRA_E(epochs: int)-> None:
+    """
+    Creates StupidMaze.
+    Places DoubleQAgent in maze.
+    Perform double Q-learning with gamma 1 and .9.
+    """
+    maze_shape = (4,4)
+    rewards = np.array([
+        [10,  -1,  -1,  -1],
+        [-2,  -1,  -1,  -1],
+        [-1,  -1, -10,  -1],
+        [-1,  -1, -10,  40],
+    ], dtype=int) # reward matrix from assignment
+    maze = StupidMaze(maze_shape, rewards)
+    maze.set_terminal((0,0))
+    maze.set_terminal((3,3))   
+
+    agent = DoubleQAgent(maze, (2,0))
+
+    print(f"\033[32m{'─'*43}\n\t\tMaze layout\n{'─'*43}\033[0m")
+    print(maze.__str__(agent.current_coordinate))
+
+    ###################################
+    #   Double Q with α=.1 ε=.1 γ=1   #
+    ###################################
+    print(f"\033[32m{'─'*77}\n\t\tDouble Q-learning, α=.1 ε=.1 γ=1 epoch={epochs}\n{'─'*77}\033[0m")
+    for _ in tqdm(range(epochs-1)):
+        agent.Q_learning(
+            alpha=0.1,
+            epsilon=0.1,
+            gamma=1,
+            print_result=False
+        )
+    agent.Q_learning(
+            alpha=0.1,
+            epsilon=0.1,
+            gamma=1,
+            print_result=True
+        )
+    print(f"\033[32m{'─'*63}\n\t\tOptimal Policy derived from Q\n{'─'*63}\033[0m")
+    policy_table = ASCII_table.ASCIITable(
+        Q_to_policy_np_matrix(agent.Q).T[::-1],
+        np.array([
+            [
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.RED    
+            ], [
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.BLUE, 
+                ASCII_table.Colours.BLUE  
+            ], [
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DEFAULT
+            ], [
+                ASCII_table.Colours.RED, 
+                ASCII_table.Colours.DEFAULT, 
+                ASCII_table.Colours.DARK_YELLOW, 
+                ASCII_table.Colours.DEFAULT
+            ],
+        ])
+    )
+    policy_table.print()
+
+    ####################################
+    #   Double Q with α=.1 ε=.1 γ=.9   #
+    ####################################
+    print(f"\033[32m{'─'*77}\n\t\tDouble Q-learning, α=.1 ε=.1 γ=.9 epoch={epochs}\n{'─'*77}\033[0m")
     for _ in tqdm(range(epochs-1)):
         agent.Q_learning(
             alpha=0.1,

@@ -7,7 +7,8 @@ def main()-> None:
     # bas.simulate_base_assignment_A(epochs=500)
     # bas.simulate_base_assignment_B(epochs=1_000_000)
     # bas.simulate_base_assignment_C(epochs=1_000_000)
-    bas.simulate_base_assignment_EXTRA_D(epochs=1_000_000)
+    # bas.simulate_base_assignment_EXTRA_D(epochs=1_000_000)
+    bas.simulate_base_assignment_EXTRA_E(epochs=1_000_000)
 
 
 if __name__ == "__main__":

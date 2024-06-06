@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['floatrange_0',['floatRange',['../namespacefloat_range.html',1,'']]]
+  ['doubleqagent_0',['doubleQAgent',['../namespacedouble_q_agent.html',1,'']]]
 ];

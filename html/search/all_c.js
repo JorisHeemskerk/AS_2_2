@@ -1,21 +1,5 @@
 var searchData=
 [
-  ['screen_0',['screen',['../classoptimal_policy_g_u_i_1_1_optimal_policy_g_u_i.html#ac3c83768874055b13840d1174d45436f',1,'optimalPolicyGUI::OptimalPolicyGUI']]],
-  ['select_5faction_1',['select_action',['../classbase_policy_1_1_base_policy.html#a83f66406430572be6e124e8cb682fd71',1,'basePolicy.BasePolicy.select_action()'],['../classoptimal_policy_1_1_optimal_policy.html#ad784b9089f3e495b13c83da1c9524841',1,'optimalPolicy.OptimalPolicy.select_action()']]],
-  ['set_5frewards_2',['set_rewards',['../classbase_maze_1_1_base_maze.html#abb47e622af9c74a5f98a3a1a5a22ed12',1,'baseMaze::BaseMaze']]],
-  ['set_5fterminal_3',['set_terminal',['../classbase_maze_1_1_base_maze.html#a5a1b350e52b72e625c61ab00e27fd43c',1,'baseMaze::BaseMaze']]],
-  ['simulate_5fbase_5fassignment_5fa_4',['simulate_base_assignment_A',['../namespacebase_assignment_simulations.html#aeac43d04b6e20dba05258ed169892de1',1,'baseAssignmentSimulations.simulate_base_assignment_A()'],['../namespacebase_assignment_simulations_g_u_i.html#a1aad8b81a7869b329aba1a84cb54f3d1',1,'baseAssignmentSimulationsGUI.simulate_base_assignment_A()']]],
-  ['simulate_5fbase_5fassignment_5fb_5',['simulate_base_assignment_B',['../namespacebase_assignment_simulations.html#abeb392bdb2aeedfbbec308d73c1a83ff',1,'baseAssignmentSimulations.simulate_base_assignment_B()'],['../namespacebase_assignment_simulations_g_u_i.html#a1ea248151b66f545682fb463078e72b8',1,'baseAssignmentSimulationsGUI.simulate_base_assignment_B()']]],
-  ['simulate_5fbase_5fassignment_5fc_6',['simulate_base_assignment_C',['../namespacebase_assignment_simulations.html#a7821999cf9449e7ed37ffa4ad1267363',1,'baseAssignmentSimulations.simulate_base_assignment_C()'],['../namespacebase_assignment_simulations_g_u_i.html#a78c3c17f5ffc34e5e9029bd219ab6e3c',1,'baseAssignmentSimulationsGUI.simulate_base_assignment_C()']]],
-  ['simulate_5fbase_5fassignment_5fextra_7',['simulate_base_assignment_EXTRA',['../namespacebase_assignment_simulations.html#ae14aa184ce556c4a5b6adda0f957b92d',1,'baseAssignmentSimulations.simulate_base_assignment_EXTRA()'],['../namespacebase_assignment_simulations_g_u_i.html#ad026d93da90e25c7d99954fbe74e2a2b',1,'baseAssignmentSimulationsGUI.simulate_base_assignment_EXTRA()']]],
-  ['simulate_5fprobability_5f2x2_5fgrid_5fw_5frandom_5freward_5fgui_8',['simulate_probability_2x2_grid_w_random_reward_GUI',['../namespacerandom_extra_assignment_simulations.html#a53dd3760627900ad6c8bf3bf59794725',1,'randomExtraAssignmentSimulations']]],
-  ['simulate_5fprobability_5f5x10_5fgrid_5fw_5frandom_5freward_9',['simulate_probability_5x10_grid_w_random_reward',['../namespacerandom_extra_assignment_simulations.html#ae8c9ad3ab88eeebbbd091277dd395338',1,'randomExtraAssignmentSimulations']]],
-  ['state_10',['state',['../namespacestate.html',1,'']]],
-  ['state_11',['State',['../classstate_1_1_state.html',1,'state']]],
-  ['state_2epy_12',['state.py',['../state_8py.html',1,'']]],
-  ['states_13',['states',['../classbase_maze_1_1_base_maze.html#abcf9e85b4ff8ff41b26b40c34867c14f',1,'baseMaze::BaseMaze']]],
-  ['step_14',['step',['../classbase_maze_1_1_base_maze.html#ad2569e2bbf1be9e67d72265e86447443',1,'baseMaze.BaseMaze.step()'],['../classstupid_maze_1_1_stupid_maze.html#af590b0b3d6e5c5c9113cd90306a7b857',1,'stupidMaze.StupidMaze.step()']]],
-  ['stupidmaze_15',['stupidMaze',['../namespacestupid_maze.html',1,'']]],
-  ['stupidmaze_16',['StupidMaze',['../classstupid_maze_1_1_stupid_maze.html',1,'stupidMaze']]],
-  ['stupidmaze_2epy_17',['stupidMaze.py',['../stupid_maze_8py.html',1,'']]]
+  ['reward_0',['reward',['../classstate_1_1_state.html#a4d4e7e9d487965e13a53c6bff1257ca0',1,'state::State']]],
+  ['right_1',['RIGHT',['../classaction_1_1_action.html#a0c03ddc216c6c25d1de91312c3aedd9c',1,'action::Action']]]
 ];

@@ -8,7 +8,6 @@ from baseMaze import BaseMaze
 from SARSAAgent import SARSAAgent
 from floatRange import FloatRange, check_annotated
 from helper import Q_to_np_matrix
-from state import State
 
 
 class QAgent(SARSAAgent):
@@ -54,7 +53,6 @@ class QAgent(SARSAAgent):
         @param alpha: alpha from formula, idk what it does exactly
         @param epsilon: epsilon from formula, idk what it does exactly
         @param gamma: discount value
-        @param print_agent: whether or not to print each step taken
         @param print_result: whether to print the final values
         """
         current_state = self.maze[self.current_coordinate]

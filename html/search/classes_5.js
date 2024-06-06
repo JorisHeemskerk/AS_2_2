@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['state_0',['State',['../classstate_1_1_state.html',1,'state']]],
-  ['stupidmaze_1',['StupidMaze',['../classstupid_maze_1_1_stupid_maze.html',1,'stupidMaze']]]
+  ['qagent_0',['QAgent',['../class_q_agent_1_1_q_agent.html',1,'QAgent']]]
 ];

@@ -112,7 +112,8 @@ Inheritance diagram for baseMaze.BaseMaze:</div>
  <div class="center">
   <img src="classbase_maze_1_1_base_maze.png" usemap="#baseMaze.BaseMaze_map" alt=""/>
   <map id="baseMaze.BaseMaze_map" name="baseMaze.BaseMaze_map">
-<area href="classstupid_maze_1_1_stupid_maze.html" title="Maze class that lets agent perform every possible action." alt="stupidMaze.StupidMaze" shape="rect" coords="0,56,146,80"/>
+<area href="classstupid_maze_1_1_stupid_maze.html" title="Maze class that lets agent perform every possible action." alt="stupidMaze.StupidMaze" shape="rect" coords="0,56,192,80"/>
+<area href="classstochastic_maze_1_1_stochastic_maze.html" title="Stochastic stupid Maze class." alt="stochasticMaze.StochasticMaze" shape="rect" coords="0,112,192,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -127,6 +128,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2569e2bbf1be9e67d72265e86447443"><td class="memItemLeft" align="right" valign="top">tuple[int, int]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_maze_1_1_base_maze.html#ad2569e2bbf1be9e67d72265e86447443">step</a> (self, tuple[int, int] start_coordinate, <a class="el" href="classaction_1_1_action.html">Action</a> action)</td></tr>
 <tr class="memdesc:ad2569e2bbf1be9e67d72265e86447443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step function for Maze.  <br /></td></tr>
 <tr class="separator:ad2569e2bbf1be9e67d72265e86447443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad33dc597a337d882deee31853d095395"><td class="memItemLeft" align="right" valign="top">tuple[tuple[int, int], float]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_maze_1_1_base_maze.html#ad33dc597a337d882deee31853d095395">step_reward</a> (self, tuple[int, int] start_coordinate, <a class="el" href="classaction_1_1_action.html">Action</a> action)</td></tr>
+<tr class="memdesc:ad33dc597a337d882deee31853d095395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step function for BaseMaze.  <br /></td></tr>
+<tr class="separator:ad33dc597a337d882deee31853d095395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a3053ab09489fd60d9b003e41de26e3"><td class="memItemLeft" align="right" valign="top">dict[Action:State]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_maze_1_1_base_maze.html#a7a3053ab09489fd60d9b003e41de26e3">get_destinations</a> (self, <a class="el" href="classstate_1_1_state.html">State</a> state)</td></tr>
 <tr class="memdesc:a7a3053ab09489fd60d9b003e41de26e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get possible destinations from given State.  <br /></td></tr>
 <tr class="separator:a7a3053ab09489fd60d9b003e41de26e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -298,7 +302,55 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>tuple[int, int] with end coordinate </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classstupid_maze_1_1_stupid_maze.html#af590b0b3d6e5c5c9113cd90306a7b857">stupidMaze.StupidMaze</a>.</p>
+<p>Reimplemented in <a class="el" href="classstochastic_maze_1_1_stochastic_maze.html#a7dc45f6364cb0e60e9f2c90d91406d82">stochasticMaze.StochasticMaze</a>, and <a class="el" href="classstupid_maze_1_1_stupid_maze.html#af590b0b3d6e5c5c9113cd90306a7b857">stupidMaze.StupidMaze</a>.</p>
+
+</div>
+</div>
+<a id="ad33dc597a337d882deee31853d095395" name="ad33dc597a337d882deee31853d095395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad33dc597a337d882deee31853d095395">&#9670;&#160;</a></span>step_reward()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> tuple[tuple[int, int], float] baseMaze.BaseMaze.step_reward </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">tuple[int, int]&#160;</td>
+          <td class="paramname"><em>start_coordinate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classaction_1_1_action.html">Action</a>
+    &#160;</td>
+          <td class="paramname"><em>action</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Step function for BaseMaze. </p>
+<p>Return corresponding end coordinate, for given action, along with the reward.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_coordinate</td><td>coordinate from where the <code>action</code> will be performed. </td></tr>
+    <tr><td class="paramname">action</td><td>action to take at <code>start_coordinate</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>tuple[tuple[int, int], float] with end coordinate and reward </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classstupid_maze_1_1_stupid_maze.html#a9bd3863294699e25abfa77ed97b16c43">stupidMaze.StupidMaze</a>.</p>
 
 </div>
 </div>
@@ -328,7 +380,7 @@ Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacebase_maze.html">baseMaze</a></li><li class="navelem"><a class="el" href="classbase_maze_1_1_base_maze.html">BaseMaze</a></li>
-    <li class="footer">Generated on Wed May 15 2024 15:45:05 for AS-1_2 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Generated on Thu Jun 6 2024 13:21:34 for AS-1_2 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

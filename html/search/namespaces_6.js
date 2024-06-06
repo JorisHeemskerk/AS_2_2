@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randomextraassignmentsimulations_0',['randomExtraAssignmentSimulations',['../namespacerandom_extra_assignment_simulations.html',1,'']]]
+  ['qagent_0',['QAgent',['../namespace_q_agent.html',1,'']]]
 ];

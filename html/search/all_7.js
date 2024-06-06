@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['left_0',['LEFT',['../classaction_1_1_action.html#a8ccabebe37c80573c78f6e6f2eb15b33',1,'action::Action']]]
+  ['is_5fterminal_0',['is_terminal',['../classstate_1_1_state.html#a286cad3d37ea35604af54017ddf68ff8',1,'state::State']]]
 ];
