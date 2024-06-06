@@ -56,7 +56,16 @@ class State:
             (self.reward == rhs.reward) and \
             (self.is_terminal == rhs.is_terminal)
     
-    def __lt__(self, other):
+    def __lt__(self, other: 'State')-> bool:
+        """
+        < operator for State.
+
+        Will order based on the x,y coordinates, prioritizing x over y.
+
+        @param other: State objects to compare to lhs
+
+        @return bool with true if lhs is smaller than rhs
+        """
         if self.position[0] == other.position[0]:
             return self.position[1] < other.position[1]
         return self.position[0] < other.position[0]

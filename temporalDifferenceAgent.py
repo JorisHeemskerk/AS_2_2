@@ -29,10 +29,7 @@ class TemporalDifferenceAgent(BaseAgent):
         @var $values
         **dict[State : float]** values per state in dict.
         """
-        
-        self.maze = maze
-        self.policy = policy
-        self.current_coordinate = start_coordinate
+        super().__init__(maze, policy, start_coordinate)
         self.values = {}
 
     def act(self, print_agent: bool=False)-> float:
@@ -46,6 +43,7 @@ class TemporalDifferenceAgent(BaseAgent):
 
         @return float with reward for action
         """
+        reward = None
         while True:
             try:
                 action = self.policy.select_action(
@@ -82,7 +80,7 @@ class TemporalDifferenceAgent(BaseAgent):
 
         This function performs the Temporal Difference algorithm.
 
-        @param alpha: alpha from formula, idk what it does exactly.
+        @param alpha: alpha from formula, idk what it does exactly
         @param gamma: discount value
         @param print_agent: whether or not to print each step taken
         @param print_result: whether to print the final values
