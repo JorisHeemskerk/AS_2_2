@@ -96,30 +96,38 @@ class QAgent(SARSAAgent):
             
         if print_result:
             print(f"\033[32m{'─'*57}\n\t\tQ-value matrix\n{'─'*57}\033[0m")
-            table = ASCII_table.ASCIITable(
-                Q_to_np_matrix(self.Q, 2, 'unvisited').T[::-1],
-                np.array([
-                    [
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.RED    
-                    ], [
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.BLUE, 
-                        ASCII_table.Colours.BLUE   
-                    ], [
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT
-                    ], [
-                        ASCII_table.Colours.RED, 
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT, 
-                        ASCII_table.Colours.DEFAULT
-                    ],
-                ])
-            )
+            table = None
+            # fix colours if assignment maze is inputted
+            try:
+                table = ASCII_table.ASCIITable(
+                    Q_to_np_matrix(self.Q, 2, 'unvisited').T[::-1],
+                    np.array([
+                        [
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.RED    
+                        ], [
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.BLUE, 
+                            ASCII_table.Colours.BLUE   
+                        ], [
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT
+                        ], [
+                            ASCII_table.Colours.RED, 
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT, 
+                            ASCII_table.Colours.DEFAULT
+                        ],
+                    ])
+                )
+            # don't give colours if another shape is passed
+            except:
+                table = ASCII_table.ASCIITable(
+                    Q_to_np_matrix(self.Q, 2, 'unvisited').T[::-1]
+                )
             table.print()
